@@ -223,7 +223,8 @@ class InetboxApp:
     }
 
     STATUS_BUFFER_PREAMBLE = bytes(
-        [0x00, 0x1E, 0x00, 0x00, 0x22, 0xFF, 0xFF, 0xFF, 0x54, 0x01]
+        # [0x00, 0x1E, 0x00, 0x00, 0x22, 0xFF, 0xFF, 0xFF, 0x54, 0x01]
+        [0x00, 0x1E, 0x00, 0x00, 0x22, 0x00, 0x00, 0x00, 0x54, 0x01]
     )
 
     STATUS_BUFFER_CHECKSUM_POSITION = 14
@@ -380,6 +381,7 @@ class InetboxApp:
         self.log = logging.getLogger("inet.app")
         # when requested, set logger to debug level
         self.log.setLevel(logging.DEBUG if debug else logging.INFO)
+        self.log.info('Jojojojo .... App Test... Connection')
 
     def map_or_debug(self, mapping, value):
         if value in mapping:
